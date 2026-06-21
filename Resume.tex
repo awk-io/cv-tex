@@ -1,0 +1,244 @@
+%=========================================================
+% ATS-Optimized Resume Template (2026)
+% Modern, clean, and fully ATS-compliant
+%=========================================================
+
+\documentclass[letterpaper,10.5pt]{article}
+
+%---------------------------------------------------------
+% Packages
+%---------------------------------------------------------
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{textcomp}    % For text symbols
+\usepackage{ifthen}      % For conditionals
+\input{glyphtounicode}
+
+%---------------------------------------------------------
+% ATS Compatibility (2026)
+%---------------------------------------------------------
+\pdfgentounicode=1
+\pdfminorversion=7
+
+%---------------------------------------------------------
+% Font Configuration - ATS Optimized (pdflatex compatible)
+%---------------------------------------------------------
+% Use sans-serif for better ATS parsing
+\renewcommand{\familydefault}{\sfdefault}
+
+% Use Helvetica-like font if available
+\usepackage[scaled=0.92]{helvet}
+\normalfont
+
+%---------------------------------------------------------
+% Margins - Optimized for readability
+%---------------------------------------------------------
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.65in}
+\addtolength{\textheight}{1.3in}
+
+\pagestyle{empty}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+
+%---------------------------------------------------------
+% Colors - Subtle and professional
+%---------------------------------------------------------
+\definecolor{linkblue}{RGB}{0, 86, 179}
+\definecolor{darktext}{RGB}{30, 30, 42}
+
+%---------------------------------------------------------
+% Sections
+%---------------------------------------------------------
+\titleformat{\section}
+{\large\bfseries\color{darktext}}
+{}{0em}{}
+[\titlerule]
+
+\titlespacing*{\section}
+{0pt}{10pt}{4pt}
+
+%---------------------------------------------------------
+% Lists - ATS friendly
+%---------------------------------------------------------
+\setlist[itemize]{
+leftmargin=16pt,
+itemsep=1pt,
+topsep=2pt,
+parsep=0pt,
+partopsep=0pt,
+label=\textbullet,
+labelsep=6pt
+}
+
+%---------------------------------------------------------
+% Custom Commands
+%---------------------------------------------------------
+
+% Skill group
+\newcommand{\skillgroup}[2]{
+\textbf{#1:} #2 \par
+}
+
+% Number formatting with comma separators
+\newcommand{\formatnum}[1]{%
+  \begingroup
+    \def\@temp##1{##1}%
+    \count@=0
+    \def\addcomma##1{%
+      \ifnum\count@=3
+        \count@=0
+        \unskip,%
+      \fi
+      \advance\count@ by 1
+      ##1%
+    }%
+    \edef\@temp{\expandafter\addcomma#1\relax}%
+    \@temp
+  \endgroup
+}
+
+% Better number formatting without external packages
+\def\comma#1{#1}
+
+%---------------------------------------------------------
+% Document
+%---------------------------------------------------------
+\begin{document}
+
+%=========================================================
+% HEADER
+%=========================================================
+
+{\Large\bfseries MINJUN KIM}
+
+\vspace{2pt}
+
+Seoul, South Korea \hspace{0.5em}$|$\hspace{0.5em}
++82-10-2345-6789 \hspace{0.5em}$|$\hspace{0.5em}
+\href{mailto:minjun.kim@email.com}{minjun.kim@email.com} \hspace{0.5em}$|$\hspace{0.5em}
+\href{https://linkedin.com/in/minjun}{LinkedIn} \hspace{0.5em}$|$\hspace{0.5em}
+\href{https://github.com/minjun}{GitHub}
+
+\vspace{4pt}
+
+%=========================================================
+% PROFESSIONAL SUMMARY
+%=========================================================
+\section*{Professional Summary}
+
+\noindent
+Results-driven Computer Science graduate with \textbf{3+ years} of research and development experience in full-stack web applications, API design, and data visualization. Proven track record of delivering scalable solutions using Python, Java, and modern JavaScript frameworks. Strong background in cloud infrastructure (AWS, Docker, Kubernetes) and database management. Published researcher with experience presenting at international conferences. Passionate about building efficient, user-centric software that solves real-world problems.
+
+\vspace{2pt}
+
+%=========================================================
+\section*{Technical Skills}
+
+\skillgroup{Languages}{Java, Python, C/C++, SQL, JavaScript, HTML/CSS}
+\skillgroup{Frameworks}{React, Node.js, Flask, FastAPI, Spring Boot}
+\skillgroup{Databases}{PostgreSQL, MySQL, MongoDB, Redis}
+\skillgroup{Cloud \& DevOps}{AWS, Docker, Kubernetes, GitHub Actions}
+\skillgroup{Tools}{Git, Linux, VS Code, IntelliJ, Postman}
+
+%=========================================================
+\section*{Experience}
+
+\vspace{2pt}
+\textbf{Undergraduate Research Assistant} \hfill \textbf{Texas A\&M University}
+\par
+\textit{Jun 2020 -- Present} \hfill \textit{College Station, TX}
+\vspace{1pt}
+
+\begin{itemize}
+\item Developed REST APIs using FastAPI and PostgreSQL to manage learning management system data.
+\item Built full-stack analytics applications using Flask, React, Docker, and PostgreSQL.
+\item Designed visualizations to analyze GitHub collaboration patterns.
+\end{itemize}
+
+\vspace{2pt}
+
+\textbf{IT Support Specialist} \hfill \textbf{Southwestern University}
+\par
+\textit{Sep 2018 -- Present} \hfill \textit{Georgetown, TX}
+\vspace{1pt}
+
+\begin{itemize}
+\item Provided technical support for faculty, staff, and students across campus.
+\item Maintained more than 200 printers and classroom systems.
+\item Diagnosed and resolved hardware and software issues.
+\end{itemize}
+
+\vspace{2pt}
+
+\textbf{Artificial Intelligence Research Assistant} \hfill \textbf{Southwestern University}
+\par
+\textit{May 2019 -- Jul 2019} \hfill \textit{Georgetown, TX}
+\vspace{1pt}
+
+\begin{itemize}
+\item Developed Java applications to evaluate procedural dungeon generation methods.
+\item Contributed over 50,000 lines of code using Git workflows.
+\item Presented research findings at the World Conference on Computational Intelligence.
+\end{itemize}
+
+%=========================================================
+\section*{Projects}
+
+\vspace{2pt}
+\textbf{Gitlytics} \hfill \textit{Python, Flask, React, PostgreSQL, Docker}
+\par
+\small Jun 2020 -- Present
+\vspace{1pt}
+
+\begin{itemize}
+\item Built full-stack web application with GitHub OAuth authentication.
+\item Implemented asynchronous processing using Celery and Redis.
+\item Visualized repository collaboration metrics.
+\end{itemize}
+
+\vspace{2pt}
+
+\textbf{Simple Paintball} \hfill \textit{Java, Spigot API, Maven, Git}
+\par
+\small May 2018 -- May 2020
+\vspace{1pt}
+
+\begin{itemize}
+\item Developed Minecraft plugin with more than 2,000 downloads.
+\item Implemented CI/CD workflows using TravisCI.
+\item Collaborated with server administrators to improve usability.
+\end{itemize}
+
+%=========================================================
+\section*{Education}
+
+\vspace{2pt}
+\textbf{Bachelor of Arts in Computer Science} \hfill \textbf{Southwestern University}
+\par
+\textit{Aug 2018 -- May 2021} \hfill \textit{Georgetown, TX}
+
+\vspace{2pt}
+
+\textbf{Associate of Liberal Arts} \hfill \textbf{Blinn College}
+\par
+\textit{Aug 2014 -- May 2018} \hfill \textit{Bryan, TX}
+
+%=========================================================
+\section*{Certifications}
+
+\begin{itemize}[leftmargin=0pt, label={}]
+\item \textbf{AWS Certified Solutions Architect} — Associate
+\item \textbf{Google Associate Cloud Engineer}
+\item \textbf{Microsoft Azure Fundamentals}
+\item \textbf{Certified Kubernetes Application Developer (CKAD)}
+\end{itemize}
+
+%=========================================================
+\end{document}
