@@ -1,244 +1,128 @@
-%=========================================================
-% ATS-Optimized Resume Template (2026)
-% Modern, clean, and fully ATS-compliant
-%=========================================================
+\documentclass[11pt,a4paper]{article}
 
-\documentclass[letterpaper,10.5pt]{article}
+% ============================================================
+% MODERN ATS-SAFE RESUME TEMPLATE
+% A4. Single column. No tables, no graphics, no icons.
+% One color variable (sectioncolor) drives all heading color.
+% Compiles as-is on Overleaf (pdfLaTeX).
+% ============================================================
 
-%---------------------------------------------------------
-% Packages
-%---------------------------------------------------------
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
+\usepackage[a4paper,margin=0.75in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{parskip}
 \usepackage{xcolor}
-\usepackage{textcomp}    % For text symbols
-\usepackage{ifthen}      % For conditionals
-\input{glyphtounicode}
-
-%---------------------------------------------------------
-% ATS Compatibility (2026)
-%---------------------------------------------------------
-\pdfgentounicode=1
-\pdfminorversion=7
-
-%---------------------------------------------------------
-% Font Configuration - ATS Optimized (pdflatex compatible)
-%---------------------------------------------------------
-% Use sans-serif for better ATS parsing
-\renewcommand{\familydefault}{\sfdefault}
-
-% Use Helvetica-like font if available
-\usepackage[scaled=0.92]{helvet}
-\normalfont
-
-%---------------------------------------------------------
-% Margins - Optimized for readability
-%---------------------------------------------------------
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.65in}
-\addtolength{\textheight}{1.3in}
 
 \pagestyle{empty}
-\raggedright
-\setlength{\parindent}{0pt}
-\setlength{\tabcolsep}{0pt}
 
-%---------------------------------------------------------
-% Colors - Subtle and professional
-%---------------------------------------------------------
-\definecolor{linkblue}{RGB}{0, 86, 179}
-\definecolor{darktext}{RGB}{30, 30, 42}
+% ---------------- COLOR DEFINITION ----------------
+% Single source of truth for heading color. Change hex here only.
+\definecolor{sectioncolor}{HTML}{2C3E50}
 
-%---------------------------------------------------------
-% Sections
-%---------------------------------------------------------
+\hypersetup{
+  colorlinks=true,
+  urlcolor=sectioncolor,
+  linkcolor=sectioncolor
+}
+
+% Section formatting: colored heading, thin rule beneath
 \titleformat{\section}
-{\large\bfseries\color{darktext}}
-{}{0em}{}
-[\titlerule]
+  {\large\bfseries\scshape\color{sectioncolor}}
+  {}{0em}{}
+  [\vspace{-6pt}{\color{sectioncolor}\hrule height 0.6pt}]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
 
-\titlespacing*{\section}
-{0pt}{10pt}{4pt}
+% Tight, ATS-safe bullet lists
+\setlist[itemize]{leftmargin=18pt, topsep=2pt, itemsep=2pt, parsep=0pt}
 
-%---------------------------------------------------------
-% Lists - ATS friendly
-%---------------------------------------------------------
-\setlist[itemize]{
-leftmargin=16pt,
-itemsep=1pt,
-topsep=2pt,
-parsep=0pt,
-partopsep=0pt,
-label=\textbullet,
-labelsep=6pt
+\newcommand{\resumeEntry}[4]{%
+  \textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill \textit{#4}
 }
 
-%---------------------------------------------------------
-% Custom Commands
-%---------------------------------------------------------
-
-% Skill group
-\newcommand{\skillgroup}[2]{
-\textbf{#1:} #2 \par
-}
-
-% Number formatting with comma separators
-\newcommand{\formatnum}[1]{%
-  \begingroup
-    \def\@temp##1{##1}%
-    \count@=0
-    \def\addcomma##1{%
-      \ifnum\count@=3
-        \count@=0
-        \unskip,%
-      \fi
-      \advance\count@ by 1
-      ##1%
-    }%
-    \edef\@temp{\expandafter\addcomma#1\relax}%
-    \@temp
-  \endgroup
-}
-
-% Better number formatting without external packages
-\def\comma#1{#1}
-
-%---------------------------------------------------------
-% Document
-%---------------------------------------------------------
 \begin{document}
 
-%=========================================================
-% HEADER
-%=========================================================
+% ---------------- HEADER ----------------
+\begin{center}
+  {\LARGE \textbf{FULL NAME}} \\[4pt]
+  {\large \textit{Senior Product Manager}} \\[6pt]
+  City, State \;|\; (555) 555-5555 \;|\; email@example.com \;|\;
+  \href{https://linkedin.com/in/yourprofile}{linkedin.com/in/yourprofile} \;|\;
+  \href{https://github.com/yourprofile}{github.com/yourprofile}
+\end{center}
 
-{\Large\bfseries MINJUN KIM}
-
-\vspace{2pt}
-
-Seoul, South Korea \hspace{0.5em}$|$\hspace{0.5em}
-+82-10-2345-6789 \hspace{0.5em}$|$\hspace{0.5em}
-\href{mailto:minjun.kim@email.com}{minjun.kim@email.com} \hspace{0.5em}$|$\hspace{0.5em}
-\href{https://linkedin.com/in/minjun}{LinkedIn} \hspace{0.5em}$|$\hspace{0.5em}
-\href{https://github.com/minjun}{GitHub}
-
-\vspace{4pt}
-
-%=========================================================
-% PROFESSIONAL SUMMARY
-%=========================================================
+% ---------------- SUMMARY ----------------
 \section*{Professional Summary}
+Results-oriented Senior Product Manager with 8+ years of experience leading cross-functional teams to design, launch, and scale digital products across B2B and B2C markets. Skilled in product strategy, roadmap prioritization, stakeholder management, and data-driven decision-making. Track record of driving double-digit revenue growth, improving user retention, and shipping products on time and under budget. Seeking to bring strategic and execution expertise to a growth-stage technology organization.
 
-\noindent
-Results-driven Computer Science graduate with \textbf{3+ years} of research and development experience in full-stack web applications, API design, and data visualization. Proven track record of delivering scalable solutions using Python, Java, and modern JavaScript frameworks. Strong background in cloud infrastructure (AWS, Docker, Kubernetes) and database management. Published researcher with experience presenting at international conferences. Passionate about building efficient, user-centric software that solves real-world problems.
+% ---------------- CORE COMPETENCIES ----------------
+\section*{Core Competencies}
+Product Strategy \;|\; Roadmap Planning \;|\; Agile / Scrum \;|\; User Research \;|\; A/B Testing \;|\; Go-to-Market Strategy \;|\; Cross-Functional Leadership \;|\; Data Analytics \;|\; Stakeholder Management \;|\; API Design \;|\; SQL \;|\; Figma
 
-\vspace{2pt}
+% ---------------- EXPERIENCE ----------------
+\section*{Professional Experience}
 
-%=========================================================
-\section*{Technical Skills}
-
-\skillgroup{Languages}{Java, Python, C/C++, SQL, JavaScript, HTML/CSS}
-\skillgroup{Frameworks}{React, Node.js, Flask, FastAPI, Spring Boot}
-\skillgroup{Databases}{PostgreSQL, MySQL, MongoDB, Redis}
-\skillgroup{Cloud \& DevOps}{AWS, Docker, Kubernetes, GitHub Actions}
-\skillgroup{Tools}{Git, Linux, VS Code, IntelliJ, Postman}
-
-%=========================================================
-\section*{Experience}
-
-\vspace{2pt}
-\textbf{Undergraduate Research Assistant} \hfill \textbf{Texas A\&M University}
-\par
-\textit{Jun 2020 -- Present} \hfill \textit{College Station, TX}
-\vspace{1pt}
-
+\resumeEntry{Senior Product Manager}{Jan 2022 -- Present}{Company Name, City, State}{}
 \begin{itemize}
-\item Developed REST APIs using FastAPI and PostgreSQL to manage learning management system data.
-\item Built full-stack analytics applications using Flask, React, Docker, and PostgreSQL.
-\item Designed visualizations to analyze GitHub collaboration patterns.
+  \item Own end-to-end product strategy for a SaaS platform serving 50{,}000+ monthly active users, driving a 32\% increase in annual recurring revenue over two years.
+  \item Lead a cross-functional team of 12, including engineers, designers, and analysts, through agile sprints and quarterly roadmap planning.
+  \item Launched three major product features based on user research and A/B testing, increasing feature adoption by 41\% and reducing churn by 18\%.
+  \item Partner with sales and marketing leadership to define go-to-market strategy for new product lines, contributing to \$2.1M in new pipeline within the first year.
+  \item Established a data-driven prioritization framework (RICE scoring) that reduced roadmap planning cycle time by 25\%.
 \end{itemize}
 
-\vspace{2pt}
-
-\textbf{IT Support Specialist} \hfill \textbf{Southwestern University}
-\par
-\textit{Sep 2018 -- Present} \hfill \textit{Georgetown, TX}
-\vspace{1pt}
-
+\resumeEntry{Product Manager}{Jun 2019 -- Dec 2021}{Company Name, City, State}{}
 \begin{itemize}
-\item Provided technical support for faculty, staff, and students across campus.
-\item Maintained more than 200 printers and classroom systems.
-\item Diagnosed and resolved hardware and software issues.
+  \item Managed the product lifecycle for a mobile application with 200{,}000+ downloads, from discovery through launch and post-launch iteration.
+  \item Conducted user interviews and usability testing with 50+ customers to inform product requirements and prioritize the backlog.
+  \item Collaborated with engineering to reduce average feature delivery time from 6 weeks to 3.5 weeks through improved sprint planning.
+  \item Defined and tracked key product metrics (activation, retention, NPS), presenting findings to executive leadership on a monthly basis.
+  \item Coordinated the launch of a payments integration that increased in-app conversion by 22\%.
 \end{itemize}
 
-\vspace{2pt}
-
-\textbf{Artificial Intelligence Research Assistant} \hfill \textbf{Southwestern University}
-\par
-\textit{May 2019 -- Jul 2019} \hfill \textit{Georgetown, TX}
-\vspace{1pt}
-
+\resumeEntry{Associate Product Manager}{Aug 2017 -- May 2019}{Company Name, City, State}{}
 \begin{itemize}
-\item Developed Java applications to evaluate procedural dungeon generation methods.
-\item Contributed over 50,000 lines of code using Git workflows.
-\item Presented research findings at the World Conference on Computational Intelligence.
+  \item Supported senior product managers in writing user stories, acceptance criteria, and maintaining the product backlog for a customer-facing web platform.
+  \item Analyzed customer support tickets and usage data to identify and prioritize top pain points, resulting in a 15\% reduction in support volume.
+  \item Coordinated UAT and release processes across three engineering squads, ensuring zero critical defects at launch.
 \end{itemize}
 
-%=========================================================
-\section*{Projects}
-
-\vspace{2pt}
-\textbf{Gitlytics} \hfill \textit{Python, Flask, React, PostgreSQL, Docker}
-\par
-\small Jun 2020 -- Present
-\vspace{1pt}
-
-\begin{itemize}
-\item Built full-stack web application with GitHub OAuth authentication.
-\item Implemented asynchronous processing using Celery and Redis.
-\item Visualized repository collaboration metrics.
-\end{itemize}
-
-\vspace{2pt}
-
-\textbf{Simple Paintball} \hfill \textit{Java, Spigot API, Maven, Git}
-\par
-\small May 2018 -- May 2020
-\vspace{1pt}
-
-\begin{itemize}
-\item Developed Minecraft plugin with more than 2,000 downloads.
-\item Implemented CI/CD workflows using TravisCI.
-\item Collaborated with server administrators to improve usability.
-\end{itemize}
-
-%=========================================================
+% ---------------- EDUCATION ----------------
 \section*{Education}
 
-\vspace{2pt}
-\textbf{Bachelor of Arts in Computer Science} \hfill \textbf{Southwestern University}
-\par
-\textit{Aug 2018 -- May 2021} \hfill \textit{Georgetown, TX}
+\textbf{Master of Business Administration (MBA)} \hfill May 2017 \\
+\textit{University Name, City, State} \hfill
 
-\vspace{2pt}
+\textbf{Bachelor of Science, Computer Science} \hfill May 2013 \\
+\textit{University Name, City, State} \hfill GPA: 3.7/4.0
 
-\textbf{Associate of Liberal Arts} \hfill \textbf{Blinn College}
-\par
-\textit{Aug 2014 -- May 2018} \hfill \textit{Bryan, TX}
+% ---------------- SKILLS ----------------
+\section*{Skills}
+\textbf{Technical:} SQL, Python (basic), Jira, Confluence, Amplitude, Mixpanel, Figma, Postman \\
+\textbf{Methodologies:} Agile, Scrum, Kanban, Lean Product Development, Design Thinking \\
+\textbf{Business:} Financial Modeling, Pricing Strategy, Competitive Analysis, OKRs
 
-%=========================================================
+% ---------------- CERTIFICATIONS ----------------
 \section*{Certifications}
-
-\begin{itemize}[leftmargin=0pt, label={}]
-\item \textbf{AWS Certified Solutions Architect} — Associate
-\item \textbf{Google Associate Cloud Engineer}
-\item \textbf{Microsoft Azure Fundamentals}
-\item \textbf{Certified Kubernetes Application Developer (CKAD)}
+\begin{itemize}
+  \item Certified Scrum Product Owner (CSPO) -- Scrum Alliance, 2021
+  \item Product Management Certificate -- Product School, 2019
 \end{itemize}
 
-%=========================================================
+% ---------------- PROJECTS ----------------
+\section*{Selected Projects}
+
+\resumeEntry{Internal Analytics Dashboard}{2023}{}{}
+\begin{itemize}
+  \item Directed the design and rollout of a self-serve analytics dashboard adopted by 6 internal teams, cutting ad hoc reporting requests by 60\%.
+\end{itemize}
+
+\resumeEntry{Customer Onboarding Redesign}{2020}{}{}
+\begin{itemize}
+  \item Led a cross-functional redesign of the new-user onboarding flow, improving 7-day activation rate from 48\% to 67\%.
+\end{itemize}
+
 \end{document}
