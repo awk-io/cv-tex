@@ -2,4 +2,5 @@
 
 A clean, ATS-friendly LaTeX resume template for modern job applications.
 
-<img width="368" height="524" alt="image" src="https://github.com/user-attachments/assets/856c6f22-c747-43c7-8e14-838b25396b96" />
+<img width="2481" height="3508" alt="tex_page-0001" src="https://github.com/user-attachments/assets/ef73bf49-c2dc-4e4f-a86d-7eaca0227df7" />
+
