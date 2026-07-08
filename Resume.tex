@@ -1,128 +1,122 @@
-\documentclass[11pt,a4paper]{article}
-
-% ============================================================
-% MODERN ATS-SAFE RESUME TEMPLATE
-% A4. Single column. No tables, no graphics, no icons.
-% One color variable (sectioncolor) drives all heading color.
-% Compiles as-is on Overleaf (pdfLaTeX).
-% ============================================================
-
-\usepackage[a4paper,margin=0.75in]{geometry}
-\usepackage[T1]{fontenc}
+\documentclass[a4paper,10pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
 \usepackage{enumitem}
-\usepackage{titlesec}
 \usepackage{hyperref}
+\usepackage{titlesec}
 \usepackage{parskip}
-\usepackage{xcolor}
 
-\pagestyle{empty}
-
-% ---------------- COLOR DEFINITION ----------------
-% Single source of truth for heading color. Change hex here only.
-\definecolor{sectioncolor}{HTML}{2C3E50}
-
-\hypersetup{
-  colorlinks=true,
-  urlcolor=sectioncolor,
-  linkcolor=sectioncolor
+% Page geometry - tight margins for single page
+\geometry{
+    a4paper,
+    left=1.8cm,
+    right=1.8cm,
+    top=1.8cm,
+    bottom=1.8cm,
 }
 
-% Section formatting: colored heading, thin rule beneath
+% Remove paragraph indentation
+\setlength{\parindent}{0pt}
+
+% Remove page numbers
+\pagenumbering{gobble}
+
+% Section formatting - clean and simple
 \titleformat{\section}
-  {\large\bfseries\scshape\color{sectioncolor}}
-  {}{0em}{}
-  [\vspace{-6pt}{\color{sectioncolor}\hrule height 0.6pt}]
-\titlespacing*{\section}{0pt}{14pt}{6pt}
+    {\normalfont\large\bfseries}
+    {\thesection}{0em}{}
+    [\titlerule]
+\titlespacing{\section}{0pt}{8pt}{3pt}
 
-% Tight, ATS-safe bullet lists
-\setlist[itemize]{leftmargin=18pt, topsep=2pt, itemsep=2pt, parsep=0pt}
+% Subsection formatting - clean
+\titleformat{\subsection}
+    {\normalfont\bfseries}
+    {\thesubsection}{0em}{}
+    []
+\titlespacing{\subsection}{0pt}{4pt}{0pt}
 
-\newcommand{\resumeEntry}[4]{%
-  \textbf{#1} \hfill #2 \\
-  \textit{#3} \hfill \textit{#4}
+% Bullet point spacing - clean and breathable
+\setlist{left=0pt, topsep=3pt, itemsep=2pt, parsep=0pt, leftmargin=12pt}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=black,
 }
 
 \begin{document}
 
-% ---------------- HEADER ----------------
+% ===== HEADER =====
 \begin{center}
-  {\LARGE \textbf{FULL NAME}} \\[4pt]
-  {\large \textit{Senior Product Manager}} \\[6pt]
-  City, State \;|\; (555) 555-5555 \;|\; email@example.com \;|\;
-  \href{https://linkedin.com/in/yourprofile}{linkedin.com/in/yourprofile} \;|\;
-  \href{https://github.com/yourprofile}{github.com/yourprofile}
+    {\huge \textbf{MINJUN KIM}} \\[0.2cm]
+    Seoul, South Korea \,|\, +82-10-2345-6789 \,|\,
+    \href{mailto:minjun.kim@email.com}{minjun.kim@email.com} \,|\,
+    \href{https://linkedin.com/in/minjunkim}{LinkedIn} \,|\,
+    \href{https://github.com/minjunkim}{GitHub}
 \end{center}
 
-% ---------------- SUMMARY ----------------
+% ===== PROFESSIONAL SUMMARY =====
 \section*{Professional Summary}
-Results-oriented Senior Product Manager with 8+ years of experience leading cross-functional teams to design, launch, and scale digital products across B2B and B2C markets. Skilled in product strategy, roadmap prioritization, stakeholder management, and data-driven decision-making. Track record of driving double-digit revenue growth, improving user retention, and shipping products on time and under budget. Seeking to bring strategic and execution expertise to a growth-stage technology organization.
+Entry-level IT professional with hands-on experience in technical support, system administration, cloud infrastructure, scripting, and software development. Proficient in Linux, Windows environments, Python, SQL, networking protocols, and automation frameworks. Demonstrated track record of improving support response times, reducing manual workloads, and maintaining reliable systems.
 
-% ---------------- CORE COMPETENCIES ----------------
-\section*{Core Competencies}
-Product Strategy \;|\; Roadmap Planning \;|\; Agile / Scrum \;|\; User Research \;|\; A/B Testing \;|\; Go-to-Market Strategy \;|\; Cross-Functional Leadership \;|\; Data Analytics \;|\; Stakeholder Management \;|\; API Design \;|\; SQL \;|\; Figma
-
-% ---------------- EXPERIENCE ----------------
-\section*{Professional Experience}
-
-\resumeEntry{Senior Product Manager}{Jan 2022 -- Present}{Company Name, City, State}{}
-\begin{itemize}
-  \item Own end-to-end product strategy for a SaaS platform serving 50{,}000+ monthly active users, driving a 32\% increase in annual recurring revenue over two years.
-  \item Lead a cross-functional team of 12, including engineers, designers, and analysts, through agile sprints and quarterly roadmap planning.
-  \item Launched three major product features based on user research and A/B testing, increasing feature adoption by 41\% and reducing churn by 18\%.
-  \item Partner with sales and marketing leadership to define go-to-market strategy for new product lines, contributing to \$2.1M in new pipeline within the first year.
-  \item Established a data-driven prioritization framework (RICE scoring) that reduced roadmap planning cycle time by 25\%.
+\section*{Core Skills}
+\begin{itemize}[leftmargin=*,nosep]
+    \item \textbf{Support \& Operations:} Help Desk, Incident Management, Troubleshooting, SLA Compliance
+    \item \textbf{Systems \& Infrastructure:} Windows 10/11, Windows Server, Ubuntu Linux, Active Directory, VMware
+    \item \textbf{Cloud Platforms:} AWS (EC2, S3, IAM, Lambda, CloudFront), Azure Fundamentals
+    \item \textbf{Programming \& Scripting:} Python, Java, JavaScript, Bash, SQL
+    \item \textbf{Networking:} TCP/IP, DNS, DHCP, VPN, Firewall Basics, Wireshark
+    \item \textbf{Tools \& Platforms:} Jira, ServiceNow, Git, GitHub, Power BI, Docker
+    \item \textbf{Languages:} Korean (Native), English (Professional Working Proficiency)
 \end{itemize}
 
-\resumeEntry{Product Manager}{Jun 2019 -- Dec 2021}{Company Name, City, State}{}
+\section*{Experience}
+
+\subsection*{IT Support Intern \hfill Hanseong Digital Solutions}
+\textit{Seoul, South Korea \hfill June 2025 -- August 2025}
 \begin{itemize}
-  \item Managed the product lifecycle for a mobile application with 200{,}000+ downloads, from discovery through launch and post-launch iteration.
-  \item Conducted user interviews and usability testing with 50+ customers to inform product requirements and prioritize the backlog.
-  \item Collaborated with engineering to reduce average feature delivery time from 6 weeks to 3.5 weeks through improved sprint planning.
-  \item Defined and tracked key product metrics (activation, retention, NPS), presenting findings to executive leadership on a monthly basis.
-  \item Coordinated the launch of a payments integration that increased in-app conversion by 22\%.
+    \item Resolved 25+ weekly support tickets covering hardware, software, VPN, printers, and access control with 96\% SLA compliance
+    \item Designed and implemented PowerShell automation scripts for new employee onboarding, reducing setup time by 40\%
+    \item Managed inventory tracking for 300+ endpoints including laptops and workstations, improving audit accuracy from 82\% to 97\%
+    \item Created comprehensive SOP documentation, resulting in 18\% reduction in repeat incident reports
 \end{itemize}
 
-\resumeEntry{Associate Product Manager}{Aug 2017 -- May 2019}{Company Name, City, State}{}
+\subsection*{Software Project Trainee \hfill BlueWave Tech Academy}
+\textit{Seoul, South Korea \hfill January 2025 -- May 2025}
 \begin{itemize}
-  \item Supported senior product managers in writing user stories, acceptance criteria, and maintaining the product backlog for a customer-facing web platform.
-  \item Analyzed customer support tickets and usage data to identify and prioritize top pain points, resulting in a 15\% reduction in support volume.
-  \item Coordinated UAT and release processes across three engineering squads, ensuring zero critical defects at launch.
+    \item Developed full-stack task management web application using Java Spring Boot with MySQL database, serving 50+ concurrent users
+    \item Implemented automated regression test suites using JUnit and Selenium, increasing test coverage by 30\%
+    \item Optimized complex SQL queries through indexing and restructuring, reducing load times from 4.2s to 1.6s
 \end{itemize}
 
-% ---------------- EDUCATION ----------------
+\section*{Projects}
+
+\subsection*{Help Desk Analytics Dashboard \hfill Python, SQL, Power BI}
+\begin{itemize}
+    \item Analyzed 10,000+ mock IT support tickets to identify patterns in MTTR, SLA breaches, and incident trends
+    \item Built interactive Power BI dashboards enabling data-driven staffing decisions
+    \item \href{https://github.com/minjunkim/helpdesk-analytics}{GitHub Repository}
+\end{itemize}
+
+\subsection*{Cloud Resume Challenge \hfill AWS, HTML, JavaScript}
+\begin{itemize}
+    \item Deployed serverless resume website on AWS S3 with CloudFront CDN for global low-latency access
+    \item Implemented DynamoDB-backed visitor counter using AWS Lambda and API Gateway
+    \item Configured CI/CD pipeline using GitHub Actions for automated deployments
+    \item \href{https://github.com/minjunkim/cloud-resume}{GitHub Repository}
+\end{itemize}
+
 \section*{Education}
+\subsection*{B.Sc. Computer Science \hfill Korea National University of Technology}
+\textit{Seoul, South Korea \hfill March 2023 -- Present}
 
-\textbf{Master of Business Administration (MBA)} \hfill May 2017 \\
-\textit{University Name, City, State} \hfill
-
-\textbf{Bachelor of Science, Computer Science} \hfill May 2013 \\
-\textit{University Name, City, State} \hfill GPA: 3.7/4.0
-
-% ---------------- SKILLS ----------------
-\section*{Skills}
-\textbf{Technical:} SQL, Python (basic), Jira, Confluence, Amplitude, Mixpanel, Figma, Postman \\
-\textbf{Methodologies:} Agile, Scrum, Kanban, Lean Product Development, Design Thinking \\
-\textbf{Business:} Financial Modeling, Pricing Strategy, Competitive Analysis, OKRs
-
-% ---------------- CERTIFICATIONS ----------------
 \section*{Certifications}
-\begin{itemize}
-  \item Certified Scrum Product Owner (CSPO) -- Scrum Alliance, 2021
-  \item Product Management Certificate -- Product School, 2019
-\end{itemize}
-
-% ---------------- PROJECTS ----------------
-\section*{Selected Projects}
-
-\resumeEntry{Internal Analytics Dashboard}{2023}{}{}
-\begin{itemize}
-  \item Directed the design and rollout of a self-serve analytics dashboard adopted by 6 internal teams, cutting ad hoc reporting requests by 60\%.
-\end{itemize}
-
-\resumeEntry{Customer Onboarding Redesign}{2020}{}{}
-\begin{itemize}
-  \item Led a cross-functional redesign of the new-user onboarding flow, improving 7-day activation rate from 48\% to 67\%.
+\begin{itemize}[leftmargin=*,nosep]
+    \item AWS Certified Cloud Practitioner -- Amazon Web Services (Issued: July 2025)
+    \item CompTIA A+ -- In Progress (Expected: December 2025)
+    \item SQL Intermediate Certification -- DataCamp (Issued: April 2025)
 \end{itemize}
 
 \end{document}
